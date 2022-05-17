@@ -5,171 +5,47 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
 <style>
-  body{
-   background-image: url('https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZGFya3xlbnwwfHwwfHw%3D&w=1000&q=80');
-   height: 100%;
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
-  }
-  table{
-    margin:0 auto;
-    margin-top: 2%;
-    padding: 25px;
-    background-color: #ffffff1d;
-    border-radius: 25px;
-  }
-  td{
+  .container{
+    margin: 0 auto;
     text-align: center;
   }
-  img{
-    margin-top: 20px;
-    margin-left:20px;
-    margin-right:20px;
-    object-fit: cover;
-    height: 350px;
-    width: 250px;
-    border-radius: 15px;
-  }
-  .centText{
-   text-align: center;
-   font-size: 50px;
-   color: white;
-  }
-  #btn{
-    padding: 10px;
-    padding-left: 25px;
-    padding-right: 40px;
-  }
-  .buttons{
-
-   color:white;
-   font-family: airal;
-   width: 100%;
-   border-radius: 15px;
-   padding:10px;
-   background-color: #ff0052;
-   cursor: pointer;
-
-  }
-  .voteCount{
+  p{
+    font-family: 'Playfair Display', serif;
     font-size: 45px;
-    background-color: #ffffff;
-    color: #ff0052;
-    border-radius: 15px;
-    text-align: center;
-    width: 100px;
-    height: 50px;
   }
-  .voteCountx{
-    font-size: 45px;
-    text-align: center;
-    width: 100px;
-    height: 50px;
+  span{
+    font-size: 65px;
+  }
+  .listing{
+    border: 1px solid #424242;
+    border-radius: 10px;
+    padding-right: 20px;
+    margin: 0 auto;
+    width: max-content;
+    text-align: left;
+  }
+  li:hover{
+    color: aqua;
+  }
+  a{
+    text-decoration: none;
+    color: #424242;
   }
 </style>
-<script>
-
-function btnGlw(x){
-  if(x==0){
-    document.getElementById("vtBtn0").style.boxShadow = "rgb(253 0 0) 0px 0px 10px";
-    document.getElementById("img0").style.boxShadow = "rgb(253 0 0) 0px 0px 10px";
-  } else if(x==1){
-    document.getElementById("img1").style.boxShadow = "rgb(253 0 0) 0px 0px 10px";
-    document.getElementById("vtBtn1").style.boxShadow = "rgb(253 0 0) 0px 0px 10px";
-  }
-}
-function btnNrm(x){
-  if(x==0){
-    document.getElementById("vtBtn0").style.boxShadow = "rgb(0 0 0) 0px 0px 0px";
-    document.getElementById("img0").style.boxShadow = "rgb(0 0 0) 0px 0px 0px";
-  } else if(x==1){
-    document.getElementById("img1").style.boxShadow = "rgb(0 0 0) 0px 0px 0px";
-    document.getElementById("vtBtn1").style.boxShadow = "rgb(0 0 0) 0px 0px 0px";
-  }
-}
-
-function vote(x){
-  if(x==0){
-    document.getElementById("img0").style.boxShadow = "rgb(122 212 1) 0px 0px 121px";
-    document.getElementById("vtBtn0").style.display = "none";
-    document.getElementById("vtBtn1").style.display = "none";
-
-  } else if(x==1){
-    document.getElementById("img1").style.boxShadow = "rgb(122 212 1) 0px 0px 121px";
-    document.getElementById("vtBtn0").style.display = "none";
-    document.getElementById("vtBtn1").style.display = "none";
-
-  }
-}
-
-function voteLoad(){
-  document.getElementById("imgVt0").value = localStorage.ImgVt0;
-  document.getElementById("imgVt1").value = localStorage.ImgVt1;
-}
-
-function voteCounter(x) {
-
-  if(x==0){
-  if (localStorage.ImgVt0) {
-    localStorage.ImgVt0 = Number(localStorage.ImgVt0)+1;
-  } else {
-    localStorage.ImgVt0 = 1;
-  }
-  document.getElementById("imgVt0").value = localStorage.ImgVt0;
-  alert("Voted Thor");
-  document.getElementById("vtBtn0").style.display = "none"
-  document.getElementById("vtBtn1").style.display = "none"
-  }
-
-  else if(x==1){
-    if (localStorage.ImgVt1) {
-    localStorage.ImgVt1 = Number(localStorage.ImgVt1)+1;
-  } else {
-    localStorage.ImgVt1 = 1;
-  }
-  document.getElementById("imgVt1").value = localStorage.ImgVt1;
-  alert("Voted Iron Man");
-  document.getElementById("vtBtn1").style.display = "none"
-  document.getElementById("vtBtn0").style.display = "none"
-  }
-}
-</script>
-
-
-</script>
-</head>
-<body onload="voteLoad()">
-  <table>
-    <tr>
-      <th colspan="2" class="centText"> 
-        Vote Your Hero
-      </th>
-    </tr>
-    <tr>
-      <td class="centText"> 
-        <span>❤️</span>
-        <input type="text" id="imgVt0" class="voteCount" disabled/>
-      </td>
-      <td class="centText">
-        <span>❤️</span>
-        <input type="text" id="imgVt1" class="voteCount" disabled/>
-      </td>
-    </tr>
-  <tr>
-  <td>
-    
-    <img id="img0" src="https://ik.imagekit.io/7ojxssbpu/thor-ragnarok-21_G07U7xqaH.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1652363651237" alg="" onmouseover="btnGlw(0)" onmouseleave="btnNrm(0)">
-  </td>
-  <td>
-    <img id="img1" src="https://ik.imagekit.io/7ojxssbpu/ironman_6YPt0FSdH.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1652355428535" alg="" onmouseover="btnGlw(1)" onmouseleave="btnNrm(1)">
-  </td>
-  </tr>
-  <tr>
-    <td id="btn"><div class="buttons" id="vtBtn0" onmouseover="btnGlw(0)" onmouseleave="btnNrm(0)" onclick="voteCounter(0)">VOTE</div></td>
-    <td id="btn"><div class="buttons" id="vtBtn1" onmouseover="btnGlw(1)" onmouseleave="btnNrm(1)" onclick="voteCounter(1)">VOTE</div></td>
-  </tr>
-  </table>
+<body>
+  <div class="container">
+  <p class="main"><span>A</span>shutosh Yadav's Directory</p>
+  <div class="listing">
+  <ul>
+    <a href="vote.html"><li>Vote Counter</li></a>
+    <a href="divideby.html"><li>Divide by?</li></a>
+  </ul>
+  </div>
+</div>
 </body>
 </html>

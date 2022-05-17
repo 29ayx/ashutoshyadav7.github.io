@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divide By | JavaScripT</title>
+<style>
+.container{
+  display:block;
+  margin: 0 auto;
+  text-align: center;
+  padding:30px;
+  width:max-content;
+  border: 1px dotted #808080;
+}
+h1{
+  text-align: center;
+}
+.questText{
+  margin: 0 auto;
+  margin-bottom:30px;
+  border:1px solid #000000;
+  font-size: 25px;
+}
+#result{
+  font-size: 25px;
+}  
+.correct{
+  color: #6DA967;
+}
+.wrong{
+  color: #FF0524;
+}
+.btnYes{
+  color: #38761D;
+  background-color: #A4C2F4;
+  font-size: 25px;
+  border:1px solid #808080;
+  border-radius:10px;
+  height:50px;
+  width:150px;
+  margin-left:20px;
+  margin-right:20px;
+  margin-top:30px;
+  box-shadow: 0px 1px 5px red;
+}
+.btnNo{
+  color: #FF0000;
+  background-color: #6D9EEB;
+  font-size: 25px;
+  border:1px solid #808080;
+  border-radius:10px;
+  height:50px;
+  width:150px;
+  margin-left:20px;
+  margin-right:20px;
+  margin-top:30px;
+  box-shadow: 0px 1px 5px red;
+}
+</style>
+</head>
+<body>  
+<h1>Divide By?</h1>
+<div class="container">
+  <div class="questText">
+    <p id="question"></p>
+  </div>
+  <p id="result"></p>
+  <button class="btnYes" onclick="checkAns(0)">Yes</button>
+  <button class="btnNo" onclick="checkAns(1)">No</button>
+</div>
+<script>
+  function createRandom(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+
+  const dividend = createRandom(10, 50000);
+  const divisior = createRandom(2, 9);
+  const reminder = dividend%divisior;
+
+  document.getElementById("question").innerHTML = ("<b>"+dividend+"</b>"+" is divided by "+"<b>"+divisior+"</b>");
+
+  function checkAns(x){
+    if(x==0){
+      if(reminder==0){
+        document.getElementById("result").innerHTML = "Yes, is correct answer";
+        document.getElementById("result").className = "correct";
+      }else{
+        document.getElementById("result").innerHTML = "No, is wrong answer";
+        document.getElementById("result").className = "wrong";
+      }
+    }else if(x==1){
+      if(reminder!=0){
+        document.getElementById("result").innerHTML = "Yes, is correct answer";
+        document.getElementById("result").className = "correct";
+      }else{
+        document.getElementById("result").innerHTML = "No, is wrong answer";
+        document.getElementById("result").className = "wrong";
+      }
+    }
+  }
+</script>
+</body>
+</html>
